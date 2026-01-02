@@ -10,7 +10,7 @@ Before you begin, make sure you have the following:
 Open the terminal and run the following as root:
 
 ```
-curl -sSL https://raw.githubusercontent.com/xero-nova/blockheads-server/main/install.sh | sudo bash
+curl -sSL https://raw.githubusercontent.com/xero-nova/blockheads/main/install.sh | sudo bash
 ```
 
 ## Windows Server Installation
@@ -28,7 +28,7 @@ wsl --install -d Ubuntu-22.04
 Run this command in the WSL Terminal:
 
 ```
-curl -sSL https://raw.githubusercontent.com/xero-nova/blockheads-server/main/install.sh | sudo bash
+curl -sSL https://raw.githubusercontent.com/xero-nova/blockheads/main/install.sh | sudo bash
 ```
 
 ## Deployment
