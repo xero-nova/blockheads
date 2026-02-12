@@ -9,7 +9,7 @@ fi
 sudo add-apt-repository multiverse -y
 sudo apt-get install libgnustep-base1.28 libdispatch0 patchelf -y
 
-wget https://r2.theblockheads.xyz/server/blockheads_server171.tar.gz
+wget https://archive.org/download/BHSv171/blockheads_server171.tar.gz
 tar xzf blockheads_server171.tar.gz
 chmod +x blockheads_server171
 
