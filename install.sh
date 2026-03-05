@@ -6,21 +6,23 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-sudo add-apt-repository multiverse -y
-sudo apt-get install libgnustep-base1.28 libdispatch0 patchelf -y
+apt-get install libgnustep-base1.28 libdispatch0 patchelf curl -y
 
-wget https://archive.org/download/BHSv171/blockheads_server171.tar.gz
+curl -L -o blockheads_server171.tar.gz https://archive.org/download/BHSv171/blockheads_server171.tar.gz
 tar xzf blockheads_server171.tar.gz
+rm blockheads_server171.tar.gz
 chmod +x blockheads_server171
+mv blockheads_server171 /usr/local/bin/blockheads_server171
 
-patchelf --replace-needed libgnustep-base.so.1.24 libgnustep-base.so.1.28 blockheads_server171
-patchelf --replace-needed libobjc.so.4.6 libobjc.so.4 blockheads_server171
-patchelf --replace-needed libgnutls.so.26 libgnutls.so.30 blockheads_server171
-patchelf --replace-needed libgcrypt.so.11 libgcrypt.so.20 blockheads_server171
-patchelf --replace-needed libffi.so.6 libffi.so.8 blockheads_server171
-patchelf --replace-needed libicui18n.so.48 libicui18n.so.70 blockheads_server171
-patchelf --replace-needed libicuuc.so.48 libicuuc.so.70 blockheads_server171
-patchelf --replace-needed libicudata.so.48 libicudata.so.70 blockheads_server171
-patchelf --replace-needed libdispatch.so libdispatch.so.0 blockheads_server171
+patchelf --replace-needed libgnustep-base.so.1.24 libgnustep-base.so.1.28 /usr/local/bin/blockheads_server171
+patchelf --replace-needed libobjc.so.4.6 libobjc.so.4 /usr/local/bin/blockheads_server171
+patchelf --replace-needed libgnutls.so.26 libgnutls.so.30 /usr/local/bin/blockheads_server171
+patchelf --replace-needed libgcrypt.so.11 libgcrypt.so.20 /usr/local/bin/blockheads_server171
+patchelf --replace-needed libffi.so.6 libffi.so.8 /usr/local/bin/blockheads_server171
+patchelf --replace-needed libicui18n.so.48 libicui18n.so.70 /usr/local/bin/blockheads_server171
+patchelf --replace-needed libicuuc.so.48 libicuuc.so.70 /usr/local/bin/blockheads_server171
+patchelf --replace-needed libicudata.so.48 libicudata.so.70 /usr/local/bin/blockheads_server171
+patchelf --replace-needed libdispatch.so libdispatch.so.0 /usr/local/bin/blockheads_server171
 
-./blockheads_server171 --help
+echo "Help Command: blockheads_server171 --help"
+echo "Saves Directory: ~/GNUstep/Library/ApplicationSupport/TheBlockheads/saves"
